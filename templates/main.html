@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="{% static 'mainApp/main.css' %} ">
+</head>
+<body>
+    {% block content %}
+
+    <div class="inputBox">
+            
+        <form action="output" method="post">
+            {% csrf_token %}
+
+            <h1>Simple Password Generator</h1>
+
+            <label for="passLength">Choose lenght of password :</label>
+            <input type="number" name="passLength" min="1" max="99" id="inputBox"> <br><br>
+            <input type="submit" value="Generate Password" id="submitButton">
+        </form>
+
+    </div>
+
+    {% endblock %}
+    
+</body>
+</html>
